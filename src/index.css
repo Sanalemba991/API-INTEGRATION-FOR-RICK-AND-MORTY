@@ -1,4 +1,3 @@
-
 .home {
     display: flex;
     flex-direction: column;
@@ -7,7 +6,7 @@
     background-size: cover;
     height: 100vh;
     width: 100vw;
-    
+    padding: 20px;
 }
 
 .h1home {
@@ -16,18 +15,16 @@
     font-size: 1.5em; 
     text-align: center; 
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
-  
-    transition:  0.3s ease;
+    transition: 0.3s ease;
 }
 
 .h1home:hover {
     color: black;
 }
 
-.homeCa{
- font-size: 1em;
+.homeCa {
+    font-size: 1em;
 }
-
 
 .homeCa a {
     color: #d12a2a;
@@ -38,5 +35,21 @@
 }
 
 .homeCa a:hover {
-    color:black;
+    color: black;
+}
+
+
+@media (max-width: 600px) {
+    .h1home {
+        font-size: 1.2em;
+        margin: 10px 0;
+    }
+
+    .homeCa {
+        font-size: 0.9em; 
+    }
+
+    .homeCa a {
+        font-size: 1em;
+    }
 }

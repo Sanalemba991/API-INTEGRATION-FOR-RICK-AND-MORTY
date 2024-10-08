@@ -1,6 +1,4 @@
-body{
-    background-color: black;
-}
+
 .home {
     display: flex;
     flex-direction: column;
@@ -23,5 +21,22 @@ body{
 }
 
 .h1home:hover {
-    color: #ff5c5c;
+    color: black;
+}
+
+.homeCa{
+ font-size: 1em;
+}
+
+
+.homeCa a {
+    color: #d12a2a;
+    text-decoration: none; 
+    font-size: 1.2em; 
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.homeCa a:hover {
+    color:black;
 }

@@ -1,0 +1,12 @@
+body{
+    background-color: black;
+}
+.home {
+    display: flex;
+    flex-direction: column;
+    background: url("../src/ricky.png") ;
+    background-size: cover; 
+    height: 100vh;
+    width: 100vw; 
+    padding: 10px;
+}

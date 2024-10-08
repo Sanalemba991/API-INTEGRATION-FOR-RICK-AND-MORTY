@@ -4,9 +4,24 @@ body{
 .home {
     display: flex;
     flex-direction: column;
-    background: url("../src/ricky.png") ;
-    background-size: cover; 
+    align-items: center;
+    background: url("../src/ricky.png") no-repeat center center;
+    background-size: cover;
     height: 100vh;
-    width: 100vw; 
-    padding: 10px;
+    width: 100vw;
+    
+}
+
+.h1home {
+    color: #d12a2a; 
+    font-style: oblique;
+    font-size: 1.5em; 
+    text-align: center; 
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); 
+  
+    transition:  0.3s ease;
+}
+
+.h1home:hover {
+    color: #ff5c5c;
 }

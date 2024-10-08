@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './character.css'
 function Character() {
   const [rick, setRick] = useState([]);
 
@@ -16,7 +17,8 @@ function Character() {
   return (
     <>
       <div className='As'>
-        <h1>Rick and Morty Characters</h1>
+        <h1 className='name'>Rick and Morty Characters</h1>
+        <div className='cha'>
         <ul>
           {rick.map(character => (
             <li key={character.id} >
@@ -30,6 +32,7 @@ function Character() {
             </li>
           ))}
         </ul>
+        </div>
       </div>
     </>
   );

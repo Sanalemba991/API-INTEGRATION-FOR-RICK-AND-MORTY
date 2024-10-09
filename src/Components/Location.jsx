@@ -36,9 +36,7 @@ const Location = () => {
                     <li key={episode.id}>
                         <h2> Name{episode.name}</h2>
                         <p>Type: {episode.type}</p>
-
-                        <p>Dimension{episode.dimension}</p>
-                    
+                        <p>Dimension{episode.dimension}</p>                   
                     </li>
                     
                 ))}

@@ -10,7 +10,7 @@ import Character from "./Components/Character";
 import Home from "./Components/Home";
 import Episode from "./Components/Episode";
 
-
+import Location from "./Components/Location";
 
 const router = createBrowserRouter([
   {
@@ -31,6 +31,11 @@ const router = createBrowserRouter([
   {
     path:"/episode",
     element:<Episode/>,
+  },
+ 
+  {
+    path:"/location",
+    element:<Location/>,
   },
  
 

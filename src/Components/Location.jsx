@@ -1,46 +1,55 @@
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import './Location.css';
 
-import './Location.css'
 const Location = () => {
-    const [episodes, setEpisodes] = useState([]);
+    const [locations, setLocations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
+    const [search, setSearch] = useState(''); 
 
     useEffect(() => {
-        const fetchEpisodes = async () => {
+        const fetchLocations = async () => {
             try {
                 const response = await axios.get('https://rickandmortyapi.com/api/location');
-                setEpisodes(response.data.results);
+                setLocations(response.data.results);
             } catch (err) {
-                setError('Failed to fetch episodes');
+                setError('Failed to fetch locations');
             } finally {
                 setLoading(false);
             }
         };
 
-        fetchEpisodes();
+        fetchLocations();
     }, []);
+
+    const filteredLocations = locations.filter(location =>
+        location.name.toLowerCase().includes(search.toLowerCase())
+    );
 
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
     return (
-        <div className='mo'>
-            <h1 className="h1">Rick and Morty Episodes</h1>
-            
+        <div className='As'>
+            <h1 className="h1">Rick and Morty Locations</h1>
+           <div className='search'>
+            <input
+                type="text"
+                placeholder="Search locations..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+                className="search-input"
+            />
+            </div>
             <ul>
-              <div className='.cah'>
-                {episodes.map(episode => (
-                    <li key={episode.id}>
-                        <h2> Name{episode.name}</h2>
-                        <p>Type: {episode.type}</p>
-                        <p>Dimension{episode.dimension}</p>                   
+                {filteredLocations.map(location => (
+                    <li key={location.id}>
+                        <h2>Name: {location.name}</h2>
+                        <p>Type: {location.type}</p>
+                        <p className='dime'>Dimension: {location.dimension}</p>
                     </li>
-                    
                 ))}
-                </div>
             </ul>
         </div>
     );

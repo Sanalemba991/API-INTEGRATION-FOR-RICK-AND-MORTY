@@ -7,7 +7,7 @@ function Home() {
       <div className='h1home'><h1  > Welcome to Rick and Morty Application</h1></div>
         
         <div className='homeCa'> <Link to="/character">Character</Link></div>
-     
+        <div className='homeCa'> <Link to="/episode">Episode</Link></div>
     </div>
   )
 }

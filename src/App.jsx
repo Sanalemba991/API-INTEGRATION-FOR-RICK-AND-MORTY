@@ -8,6 +8,7 @@ import {
 } from "react-router-dom";
 import Character from "./Components/Character";
 import Home from "./Components/Home";
+import Episode from "./Components/Episode";
 
 
 
@@ -27,7 +28,11 @@ const router = createBrowserRouter([
     element:<Character/>,
   },
  
-
+  {
+    path:"/episode",
+    element:<Episode/>,
+  },
+ 
 
   
 

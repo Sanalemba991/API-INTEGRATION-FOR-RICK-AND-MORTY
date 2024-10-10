@@ -5,10 +5,40 @@ text-align: center;
     color:#c0ba8cd3;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
-.smn{
- 
-  display: flex;
-  flex-direction: column;
-  padding: 12px 12px 12px 12px;
-  margin:  0%  15% 15% 15%;
+  .smn {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; 
+    margin: 20px;
 }
+
+.smn ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.smn li {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.smn li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.smn h2 {
+    font-size: 1.6em;
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.smn p {
+    margin: 5px 0;
+    color: #666;
+}
+

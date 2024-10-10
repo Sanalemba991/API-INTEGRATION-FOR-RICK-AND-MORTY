@@ -7,19 +7,14 @@ text-align: center;
   }
   .smn {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px; 
+  background-color: transparent;
     margin: 20px;
 }
 
-.smn ul {
-    list-style-type: none;
-    padding: 0;
-}
 
 .smn li {
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: transparent;
+    border: 1px solid #c1871d;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 20px;
@@ -41,4 +36,3 @@ text-align: center;
     margin: 5px 0;
     color: #666;
 }
-

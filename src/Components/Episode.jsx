@@ -29,6 +29,7 @@ const Episode = () => {
     return (
         <div>
             <h1 className='Rick'>Rick and Morty Episodes</h1>
+            <div className='smn'>
             <ul>
                 {episodes.map(episode => (
                     <li key={episode.id}>
@@ -38,6 +39,7 @@ const Episode = () => {
                     </li>
                 ))}
             </ul>
+            </div>
         </div>
     );
 };

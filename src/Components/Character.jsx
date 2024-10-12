@@ -6,48 +6,57 @@ import { Link } from "react-router-dom";
 function Character() {
   const [rick, setRick] = useState([]);
   const [search, setSearch] = useState('');
+  const [currentPage, setCurrentPage] = useState(1);
+  const charactersPerPage = 5;
 
   useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/character")
-      .then((response) => {
-        setRick(response.data.results);
-      })
-      .catch((error) => {
-        console.error("Error fetching data:", error);
-      });
+    axios.get("https://rickandmortyapi.com/api/character")
+      .then((response) => setRick(response.data.results))
+      .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  // For Searching
+  // Filter characters for display
   const filteredCharacters = rick.filter(character =>
     character.name.toLowerCase().includes(search.toLowerCase())
   );
 
+  // Calculate total pages based on rick length
+  const totalPages = Math.ceil(rick.length / charactersPerPage);
+  
+  // Slice based on current page
+  const currentCharacters = filteredCharacters.slice((currentPage - 1) * charactersPerPage, currentPage * charactersPerPage);
+
+  // Reset the current page if the filtered characters change
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, rick]);
+
   return (
     <div className="As">
       <h1 className="name">Rick and Morty Characters</h1>
-      <div className="search">
-        <input
-          type="text"
-          placeholder="Search characters"
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-      <div className="cha">
-        <ul>
-          {filteredCharacters.map((character) => (
-            <li key={character.id}>
-              <h2>{character.name}</h2>
-              <img src={character.image} alt={character.name} />
-              <p>Status: {character.status}</p>
-              <p>Species: {character.species}</p>
-              <p>Gender: {character.gender}</p>
-              <p>Origin: {character.origin.name}</p>
-              <p>Location: {character.location.name}</p>
-              <Link to={`/read/${character.id}`}>Read</Link>
-            </li>
-          ))}
-        </ul>
+      <input
+        type="text"
+        placeholder="Search characters"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <ul>
+        {currentCharacters.map(character => (
+          <li key={character.id}>
+            <h2>{character.name}</h2>
+            <img src={character.image} alt={character.name} />
+            <p>Status: {character.status}</p>
+            <Link to={`/read/${character.id}`}>Read</Link>
+          </li>
+        ))}
+      </ul>
+      <div className="pagination">
+        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>Page {currentPage} of {totalPages}</span>
+        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+          Next
+        </button>
       </div>
     </div>
   );

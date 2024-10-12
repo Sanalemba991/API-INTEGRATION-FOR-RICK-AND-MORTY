@@ -5,31 +5,26 @@ import { Link } from 'react-router-dom';
 
 const Location = () => {
     const [locations, setLocations] = useState([]);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const charactersPerPage = 5;
     const [search, setSearch] = useState('');
 
     useEffect(() => {
-        const fetchLocations = async () => {
-            try {
-                const response = await axios.get('https://rickandmortyapi.com/api/location');
-                setLocations(response.data.results);
-            } catch (err) {
-                setError('Failed to fetch locations');
-            } finally {
-                setLoading(false);
-            }
-        };
-
-        fetchLocations();
+        axios.get("https://rickandmortyapi.com/api/location")
+            .then((response) => setLocations(response.data.results))
+            .catch((error) => console.error("Error fetching data:", error));
     }, []);
 
     const filteredLocations = locations.filter(location =>
         location.name.toLowerCase().includes(search.toLowerCase())
     );
 
-    if (loading) return <div>Loading...</div>;
-    if (error) return <div>{error}</div>;
+    const totalPages = Math.ceil(filteredLocations.length / charactersPerPage);
+    const currentLocations = filteredLocations.slice((currentPage - 1) * charactersPerPage, currentPage * charactersPerPage);
+
+    useEffect(() => {
+        setCurrentPage(1);
+    }, [search, locations]);
 
     return (
         <div className='As'>
@@ -44,15 +39,23 @@ const Location = () => {
                 />
             </div>
             <ul>
-                {filteredLocations.map(location => (
+                {currentLocations.map(location => (
                     <li key={location.id}>
                         <h2>Name: {location.name}</h2>
                         <p>Type: {location.type}</p>
-                        <p className='dime'>Dimension: {location.dimension}</p>
                         <Link to={`/readfor/${location.id}`}>Read</Link>
                     </li>
                 ))}
             </ul>
+            <div className="pagination">
+                <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+                    Previous
+                </button>
+                <span>Page {currentPage} of {totalPages}</span>
+                <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+                    Next
+                </button>
+            </div>
         </div>
     );
 };

@@ -8,6 +8,7 @@ import Home from "./Components/Home";
 import Episode from "./Components/Episode";
 import Location from "./Components/Location";
 import ReadForLocation from "./Components/ReadForLocation";
+import ReadforEpisode from "./Components/ReadforEpisode";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const router = createBrowserRouter([
       path: "/readfor/:id",
       element: <ReadForLocation />,
   },
+  {
+    path: "/readf/:id",
+    element: <ReadforEpisode />,
+},
 ]);
 
 function App() {

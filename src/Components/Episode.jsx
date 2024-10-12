@@ -46,6 +46,7 @@ const Episode = () => {
           {currentEpisodes.map((episode) => (
             <li key={episode.id}>
               <h2>{episode.name}</h2>
+              <img src={episode.image} alt={episode.name} />
               <p>Air Date: {episode.air_date}</p>
               <p>Episode: {episode.episode}</p>
               <Link to={`/read/${episode.id}`}>Read</Link>

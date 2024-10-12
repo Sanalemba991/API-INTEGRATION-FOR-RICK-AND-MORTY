@@ -15,22 +15,15 @@ function Character() {
       .catch((error) => console.error("Error fetching data:", error));
   }, []);
 
-  // Filter characters for display
   const filteredCharacters = rick.filter(character =>
     character.name.toLowerCase().includes(search.toLowerCase())
   );
 
-  // Calculate total pages based on rick length
-  const totalPages = Math.ceil(rick.length / charactersPerPage);
-  
-  // Slice based on current page
+  const totalPages = Math.ceil(filteredCharacters.length / charactersPerPage);
   const currentCharacters = filteredCharacters.slice((currentPage - 1) * charactersPerPage, currentPage * charactersPerPage);
 
-  // Reset the current page if the filtered characters change
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [search, rick]);
 
+  
   return (
     <div className="As">
       <h1 className="name">Rick and Morty Characters</h1>

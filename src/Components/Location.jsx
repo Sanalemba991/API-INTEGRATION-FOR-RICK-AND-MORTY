@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Location.css';
+import { Link } from 'react-router-dom';
 
 const Location = () => {
     const [locations, setLocations] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState('');
-    const [search, setSearch] = useState(''); 
+    const [search, setSearch] = useState('');
 
     useEffect(() => {
         const fetchLocations = async () => {
@@ -33,14 +34,14 @@ const Location = () => {
     return (
         <div className='As'>
             <h1 className="h1">Rick and Morty Locations</h1>
-           <div className='search'>
-            <input
-                type="text"
-                placeholder="Search locations..."
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-                className="search-input"
-            />
+            <div className='search'>
+                <input
+                    type="text"
+                    placeholder="Search locations..."
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                    className="search-input"
+                />
             </div>
             <ul>
                 {filteredLocations.map(location => (
@@ -48,6 +49,7 @@ const Location = () => {
                         <h2>Name: {location.name}</h2>
                         <p>Type: {location.type}</p>
                         <p className='dime'>Dimension: {location.dimension}</p>
+                        <Link to={`/readfor/${location.id}`}>Read</Link>
                     </li>
                 ))}
             </ul>

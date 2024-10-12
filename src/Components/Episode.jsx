@@ -6,27 +6,44 @@ import { Link } from "react-router-dom";
 const Episode = () => {
   const [episodes, setEpisodes] = useState([]);
   const [error, setError] = useState("");
-  const [currentPage,setCurrentPage]=useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
   const charactersPerPage = 5;
+  const [search, setSearch] = useState(""); // Added search state
 
   useEffect(() => {
-    axios
-      .get("https://rickandmortyapi.com/api/episode")
-      .then((response) => setEpisodes(response.data.results))
-      .catch((error) => console.error("Error fetching data:", error));
+    const fetchEpisodes = async () => {
+      try {
+        const response = await axios.get("https://rickandmortyapi.com/api/episode");
+        setEpisodes(response.data.results);
+      } catch (error) {
+        setError("Error fetching data");
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchEpisodes();
   }, []);
-  const filteredCharacters = episodes.filter(character =>
-    character.name.toLowerCase().includes(search.toLowerCase())
+
+  const filteredEpisodes = episodes.filter(episode =>
+    episode.name.toLowerCase().includes(search.toLowerCase())
   );
+
+  const totalPages = Math.ceil(filteredEpisodes.length / charactersPerPage);
+  const currentEpisodes = filteredEpisodes.slice((currentPage - 1) * charactersPerPage, currentPage * charactersPerPage);
 
   if (error) return <div>{error}</div>;
 
   return (
     <div>
       <h1 className="Rick">Rick and Morty Episodes</h1>
+      <input
+        type="text"
+        placeholder="Search episodes..."
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
       <div className="smn">
         <ul>
-          {episodes.map((episode) => (
+          {currentEpisodes.map((episode) => (
             <li key={episode.id}>
               <h2>{episode.name}</h2>
               <p>Air Date: {episode.air_date}</p>
@@ -36,14 +53,14 @@ const Episode = () => {
           ))}
         </ul>
         <div className="pagination">
-        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
-          Previous
-        </button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
-          Next
-        </button>
-      </div>
+          <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+            Previous
+          </button>
+          <span>Page {currentPage} of {totalPages}</span>
+          <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+            Next
+          </button>
+        </div>
       </div>
     </div>
   );

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./character.css";
+import { Link } from "react-router-dom";
+
 function Character() {
   const [rick, setRick] = useState([]);
   const [search, setSearch] = useState('');
@@ -22,35 +24,32 @@ function Character() {
   );
 
   return (
-    <>
-      <div className="As">
-        <h1 className="name">Rick and Morty Characters</h1>
-        <div className="search">
-          <input
-            type="text"
-            placeholder="Search characters"
-            onChange={(e) => setSearch(e.target.value)}
-          />
-     
-        </div>
-        <div className="cha">
-          <ul>
-            {filteredCharacters.map((character) => (
-              <li key={character.id}>
-                <h2>{character.name}</h2>
-                <img src={character.image} alt={character.name} />
-                <p>Status: {character.status}</p>
-                <p>Species: {character.species}</p>
-                <p>Gender: {character.gender}</p>
-                <p>Origin: {character.origin.name}</p>
-                <p>Location: {character.location.name}</p>
-              </li>
-            ))}
-          </ul>
-          <Link to={`/read/${rick.id}`}>Read</Link>
-        </div>
+    <div className="As">
+      <h1 className="name">Rick and Morty Characters</h1>
+      <div className="search">
+        <input
+          type="text"
+          placeholder="Search characters"
+          onChange={(e) => setSearch(e.target.value)}
+        />
       </div>
-    </>
+      <div className="cha">
+        <ul>
+          {filteredCharacters.map((character) => (
+            <li key={character.id}>
+              <h2>{character.name}</h2>
+              <img src={character.image} alt={character.name} />
+              <p>Status: {character.status}</p>
+              <p>Species: {character.species}</p>
+              <p>Gender: {character.gender}</p>
+              <p>Origin: {character.origin.name}</p>
+              <p>Location: {character.location.name}</p>
+              <Link to={`/read/${character.id}`}>Read</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
   );
 }
 

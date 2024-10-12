@@ -39,13 +39,15 @@ const Location = () => {
                 />
             </div>
             <ul>
-                {currentLocations.map(location => (
+               
+                  {currentLocations.map(location => (
                     <li key={location.id}>
                         <h2>Name: {location.name}</h2>
                         <p>Type: {location.type}</p>
                         <Link to={`/readfor/${location.id}`}>Read</Link>
                     </li>
                 ))}
+              
             </ul>
             <div className="pagination">
                 <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>

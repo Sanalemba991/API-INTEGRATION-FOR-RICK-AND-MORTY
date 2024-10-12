@@ -22,8 +22,10 @@ function Character() {
   const totalPages = Math.ceil(filteredCharacters.length / charactersPerPage);
   const currentCharacters = filteredCharacters.slice((currentPage - 1) * charactersPerPage, currentPage * charactersPerPage);
 
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [search, rick]);
 
-  
   return (
     <div className="As">
       <h1 className="name">Rick and Morty Characters</h1>

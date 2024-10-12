@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./character.css";
-
 function Character() {
   const [rick, setRick] = useState([]);
   const [search, setSearch] = useState('');
@@ -48,6 +47,7 @@ function Character() {
               </li>
             ))}
           </ul>
+          <Link to={`/read/${rick.id}`}>Read</Link>
         </div>
       </div>
     </>

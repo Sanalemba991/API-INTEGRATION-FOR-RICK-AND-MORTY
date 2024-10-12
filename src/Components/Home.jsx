@@ -9,6 +9,7 @@ function Home() {
         <div className='homeCa'> <Link to="/character">Character</Link></div>
         <div className='homeCa'> <Link to="/episode">Episode</Link></div>
         <div className='homeCa'> <Link to="/location">Location</Link></div>
+        
         </div>
     </div>
   )

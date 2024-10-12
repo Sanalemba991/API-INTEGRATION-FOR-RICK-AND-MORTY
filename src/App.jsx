@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Character from "./Components/Character";
+import Read from "./Components/Read";
 import Home from "./Components/Home";
 import Episode from "./Components/Episode";
 
@@ -37,6 +38,12 @@ const router = createBrowserRouter([
     path:"/location",
     element:<Location/>,
   },
+   
+  {
+    path:"/Read",
+    element:<Read/>,
+  }
+ 
  
 
   

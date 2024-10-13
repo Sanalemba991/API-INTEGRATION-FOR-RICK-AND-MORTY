@@ -1,73 +1,29 @@
-body {
-    background-color: white;
+.sma {
+
+  justify-content: center;
+  margin-left: 9px;
 }
 
+.character-list {
+  display: grid;/*important*/
+  grid-template-columns: repeat(3, 1fr); /*important*/
+  margin-left: 40px;
+  gap: 30px;
 
-.cha {
-   
-    padding: 20px;
-    border-radius: 10px;
-    max-width: 800px;
-    margin: 20px auto;
-    
-  }
-  
-  ul {
-    list-style-type: none; 
-    padding: 0;
-  }
-  
-  li {
-     
-    border: 1px solid #c0ba8cd3; 
-    border-radius: 8px;
-    margin: 15px 0;
-    padding: 15px;
-    display: flex;
-    align-items: center; 
-  }
-  
-  h2 {
-    font-size: 1.2em;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    margin: 0 15px 0 0; 
-    color: whitesmoke; 
-  }
-  
-  img {
-    width: 100px;
-    
-    border-radius: 50%;
-    margin-right: 9px;
-  }
-  
-  p {
-    margin: 5px 0;
-    color: white;
-    font-size: 1em;
-    background-color: transparent;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  }
-  .name{
 
-    margin-top: 90px;
-text-align: center;
-    color:#c0ba8cd3;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  }
-  .search {
-    display: flex;
-    justify-content: center;
-   
-    
-  }
   
-.search input{
-  border: 1px solid #c0ba8cd3; 
-  background-color:transparent;
-  border-radius:9px;
-  margin-left: 8px;
-  padding: 2px 2px 2px 2px;
-  color:   whitesmoke; ;
 }
 
+.character-item {
+  
+ 
+  border: 1px solid sandybrown; 
+ 
+  text-align: center;
+
+
+}
+.image{
+  height: 100%;
+  width: 40%;
+}

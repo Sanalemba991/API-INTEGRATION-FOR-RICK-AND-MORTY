@@ -7,7 +7,7 @@ function Character() {
   const [rick, setRick] = useState([]);
   const [search, setSearch] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const charactersPerPage = 5;
+  const charactersPerPage = 6;
 
   useEffect(() => {
     axios.get("https://rickandmortyapi.com/api/character")
@@ -34,16 +34,20 @@ function Character() {
         placeholder="Search characters"
         onChange={(e) => setSearch(e.target.value)}
       />
-      <ul>
-        {currentCharacters.map(character => (
-          <li key={character.id}>
-            <h2>{character.name}</h2>
-            <img src={character.image} alt={character.name} />
-            <p>Status: {character.status}</p>
-            <Link to={`/read/${character.id}`}>Read</Link>
-          </li>
-        ))}
-      </ul>
+<div className="sma">
+  <ul className="character-list">
+    {currentCharacters.map(character => (
+      <li key={character.id} className="character-item">
+        <h2 className="name">{character.name}</h2>
+        <img className="image" src={character.image} alt={character.name} />
+        <p className="status">Status: {character.status}</p>
+        <Link to={`/read/${character.id}`}>Read</Link>
+      </li>
+    ))}
+  </ul>
+</div>
+
+
       <div className="pagination">
         <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
           Previous

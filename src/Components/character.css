@@ -47,3 +47,52 @@
 .Link a:hover {
   color: wheat; 
 }
+.search {
+  margin-left: 45%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:transparent;
+  color: white;
+  font-size: 1em;
+  transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
+}
+
+.search::placeholder {
+  color: #aaa;
+}
+
+.btn{
+  margin-left: 45%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:transparent;
+  color: gray;
+  font-size: 1em;
+ 
+}
+.btn:hover {
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+  color: wheat;
+  cursor: pointer;
+}
+
+.ctn{
+  margin-left: 2px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:transparent;
+  color: gray;
+  font-size: 1em;
+ 
+}
+.ctn:hover{
+  background-color: rgba(0, 123, 255, 0.1); /* Light blue background on hover */
+  color: wheat;
+  cursor: pointer;
+
+}
+.span{
+  margin-left: 6px;
+  margin-right: 6px;
+  color:grey;
+}

@@ -29,7 +29,7 @@ function Character() {
   return (
     <div className="As">
       <h1 className="name">Rick and Morty Characters</h1>
-      <input
+      <input className="search"
         type="text"
         placeholder="Search characters"
         onChange={(e) => setSearch(e.target.value)}
@@ -49,11 +49,11 @@ function Character() {
 
 
       <div className="pagination">
-        <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
+        <button className="btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
           Previous
         </button>
-        <span>Page {currentPage} of {totalPages}</span>
-        <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
+        <span className="span">Page {currentPage} of {totalPages}</span>
+        <button className="ctn" onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
           Next
         </button>
       </div>

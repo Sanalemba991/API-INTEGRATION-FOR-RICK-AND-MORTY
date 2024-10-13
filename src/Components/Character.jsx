@@ -41,7 +41,7 @@ function Character() {
         <h2 className="name">{character.name}</h2>
         <img className="image" src={character.image} alt={character.name} />
         <p className="status">Status: {character.status}</p>
-        <Link to={`/read/${character.id}`}>Read</Link>
+       <div className="Link"><Link to={`/read/${character.id}`}>ReadMore</Link></div>
       </li>
     ))}
   </ul>

@@ -8,7 +8,7 @@
   display: grid;/*important*/
   grid-template-columns: repeat(3, 1fr); /*important*/
   margin-left: 40px;
-  gap: 30px;
+  gap: 20px;
 
 
   
@@ -17,7 +17,7 @@
 .character-item {
   
  
-  border: 1px solid sandybrown; 
+  border: 1px solid grey; 
  
   text-align: center;
 
@@ -26,4 +26,24 @@
 .image{
   height: 100%;
   width: 40%;
+}
+.name{
+  height: 100%;
+
+  
+}
+.status{
+  color:rgb(105, 79, 33);
+}
+
+.Link a {
+  color: rgb(105, 79, 33);
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px; 
+  transition: color 0.3s; 
+}
+
+.Link a:hover {
+  color: wheat; 
 }

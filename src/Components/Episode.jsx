@@ -57,7 +57,7 @@ const Episode = () => {
           <button  className="btn" onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1}>
             Previous
           </button>
-          <span>Page {currentPage} of {totalPages}</span>
+          <span className="span">Page {currentPage} of {totalPages}</span>
           <button className="ctn"  onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages}>
             Next
           </button>

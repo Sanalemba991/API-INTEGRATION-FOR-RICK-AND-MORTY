@@ -42,7 +42,7 @@ const Episode = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <div className="smn">
-        <ul>
+        <ul className="character-list">
           {currentEpisodes.map((episode) => (
             <li key={episode.id}>
               <h2>{episode.name}</h2>

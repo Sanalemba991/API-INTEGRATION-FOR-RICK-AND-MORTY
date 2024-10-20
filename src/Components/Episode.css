@@ -108,3 +108,8 @@ text-align: center;
     cursor: pointer;
   
   }
+  .span{
+    margin-left: 6px;
+    margin-right: 6px;
+    color:grey;
+  }

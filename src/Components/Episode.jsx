@@ -7,7 +7,7 @@ const Episode = () => {
   const [episodes, setEpisodes] = useState([]);
   const [error, setError] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const charactersPerPage = 5;
+  const charactersPerPage = 6;
   const [search, setSearch] = useState(""); // Added search state
 
   useEffect(() => {

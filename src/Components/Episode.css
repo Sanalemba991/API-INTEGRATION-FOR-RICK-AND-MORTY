@@ -36,3 +36,12 @@ text-align: center;
     margin: 5px 0;
     color: #666;
 }
+.character-list {
+    display: grid;/*important*/
+    grid-template-columns: repeat(3, 1fr); /*important*/
+    margin-left: 40px;
+    gap: 20px;
+  
+  
+    
+  }

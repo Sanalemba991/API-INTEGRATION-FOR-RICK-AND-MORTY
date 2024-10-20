@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams } from 'react-router-dom';
-
+import './Readfo.css'
 const ReadForLocation = () => {
     const { id } = useParams();
     const [location, setLocation] = useState(null);
@@ -18,7 +18,7 @@ const ReadForLocation = () => {
     if (!location) return <div>No location found</div>;
 
     return (
-        <div>
+        <div className='ma'>
             <h2>Name: {location.name}</h2>
             <p>Type: {location.type}</p>
             <p className='dime'>Dimension: {location.dimension}</p>

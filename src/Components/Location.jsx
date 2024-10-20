@@ -29,15 +29,16 @@ const Location = () => {
     return (
         <div className='As'>
             <h1 className="h1">Rick and Morty Locations</h1>
-            <div className='search'>
+          
                 <input
                     type="text"
+                     className="search"
                     placeholder="Search locations..."
                     value={search}
                     onChange={(e) => setSearch(e.target.value)}
-                    className="search-input"
+                   
                 />
-            </div>
+            
             <ul>
                
                   {currentLocations.map(location => (

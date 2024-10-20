@@ -34,9 +34,9 @@ const Episode = () => {
 
   return (
     <div>
-      <h1 className="As">Rick and Morty Episodes</h1>
+      <h1 className="name">Rick and Morty Episodes</h1>
       <input
-        type="text"
+        type="text" className="search"
         placeholder="Search episodes..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}

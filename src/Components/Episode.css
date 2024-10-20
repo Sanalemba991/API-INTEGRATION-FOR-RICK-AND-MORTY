@@ -54,4 +54,26 @@ text-align: center;
     font-size: 1em;
     transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
   }
+  .search {
+    margin-left: 45%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:transparent;
+    color: white;
+    font-size: 1em;
+    transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
+  }
   
+  .search {
+    margin-left: 45%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:transparent;
+    color: white;
+    font-size: 1em;
+    transition: border-color 0.3s, background-color 0.3s; /* Smooth transition */
+  }
+  
+  .search::placeholder {
+    color: #aaa;
+  }

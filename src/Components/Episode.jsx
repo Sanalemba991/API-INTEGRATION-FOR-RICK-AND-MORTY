@@ -34,7 +34,7 @@ const Episode = () => {
 
   return (
     <div>
-      <h1 className="Rick">Rick and Morty Episodes</h1>
+      <h1 className="As">Rick and Morty Episodes</h1>
       <input
         type="text"
         placeholder="Search episodes..."

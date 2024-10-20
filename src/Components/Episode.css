@@ -77,3 +77,15 @@ text-align: center;
   .search::placeholder {
     color: #aaa;
   }
+
+  .btn{
+    margin-left: 45%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:transparent;
+    color: gray;
+    font-size: 1em;
+   
+  }
+ 
+  }

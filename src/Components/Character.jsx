@@ -28,7 +28,7 @@ function Character() {
 
   return (
     <div className="As">
-      <h1 className="name">Rick and Morty Characters</h1>
+      <h1 className="name">Rick and Mortyopy Characters</h1>
       <input className="search"
         type="text"
         placeholder="Search characters"
